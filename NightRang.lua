@@ -2626,7 +2626,7 @@ return false end
 end
 if text == 'تحديث السورس' and Dev_Bots(msg) then 
 os.execute('rm -rf NightRang.lua')
-os.execute('wget https://raw.githubusercontent.com/Free-src-laksis/NightRang/main/NightRang.lua')
+os.execute('wget https://raw.githubusercontent.com/SLOM2539/NightRang/main/NightRang.lua')
 send(msg.chat_id_, msg.id_,'• تم تحديث السورس')
 dofile('NightRang.lua')  
 end
@@ -7643,6 +7643,33 @@ redis:sadd(bot_id.."NightRang:gamebot:List:Manager", text)
 return false end
 end
 if text == 'كت تويت' then
+
+if text == "اضف رد بوت" then
+
+if not Dev_Bots(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
+return false
+end
+redis:set(bot_id.."NightRang:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"ارسل الرد الان ")
+end
+if text == "حذف رد بوت" then
+
+if not Dev_Bots(msg) then
+send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
+return false
+end
+redis:del(bot_id.."NightRang:gamebot:List:Manager")
+return send(msg.chat_id_, msg.id_,"تم حذف الردود")
+end
+if text and text:match("^(.*)$") then
+if redis:get(bot_id.."NightRang:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+send(msg.chat_id_, msg.id_, '\nتم حفظ الرد بنجاح')
+redis:set(bot_id.."NightRang:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+redis:sadd(bot_id.."NightRang:gamebot:List:Manager", text)
+return false end
+end
+if text == 'بوت' then
 
 if redis:get(bot_id..'NightRang:Lock:Game:Group'..msg.chat_id_) then
 local list = redis:smembers(bot_id.."NightRang:gamebot:List:Manager")

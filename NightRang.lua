@@ -2626,7 +2626,7 @@ return false end
 end
 if text == 'تحديث السورس' and Dev_Bots(msg) then 
 os.execute('rm -rf NightRang.lua')
-os.execute('wget https://raw.githubusercontent.com/SLOM2539/NightRang/main/NightRang.lua')
+os.execute('wget https://raw.githubusercontent.com/Slom2539/NightRang/main/NightRang.lua')
 send(msg.chat_id_, msg.id_,'• تم تحديث السورس')
 dofile('NightRang.lua')  
 end
@@ -5574,7 +5574,7 @@ send(msg.chat_id_, msg.id_,' امر صيح تم تعطيله من قبل الم�
 end
 return false
 end
-if text and text:match("(.*)(ضافني)(.*)") then
+if text and text:match("منو ضافني") then
 if redis:get(bot_id..'Added:Me'..msg.chat_id_) then
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da and da.status_.ID == "ChatMemberStatusCreator" then
@@ -7644,33 +7644,6 @@ return false end
 end
 if text == 'كت تويت' then
 
-if text == "اضف رد بوت" then
-
-if not Dev_Bots(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
-return false
-end
-redis:set(bot_id.."NightRang:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return send(msg.chat_id_, msg.id_,"ارسل الرد الان ")
-end
-if text == "حذف رد بوت" then
-
-if not Dev_Bots(msg) then
-send(msg.chat_id_,msg.id_,' هذا الامر خاص Carbon فقط')
-return false
-end
-redis:del(bot_id.."NightRang:gamebot:List:Manager")
-return send(msg.chat_id_, msg.id_,"تم حذف الردود")
-end
-if text and text:match("^(.*)$") then
-if redis:get(bot_id.."NightRang:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\nتم حفظ الرد بنجاح')
-redis:set(bot_id.."NightRang:gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
-redis:sadd(bot_id.."NightRang:gamebot:List:Manager", text)
-return false end
-end
-if text == 'بوت' then
-
 if redis:get(bot_id..'NightRang:Lock:Game:Group'..msg.chat_id_) then
 local list = redis:smembers(bot_id.."NightRang:gamebot:List:Manager")
 if #list ~= 0 then
@@ -8281,11 +8254,11 @@ local Num_Games = redis:get(bot_id.."NightRang:Num:Add:Games"..msg.chat_id_..msg
 local Add_Mem = redis:get(bot_id.."NightRang:Num:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (yazon.total_count_ or 0)
 local Texting = {
-'يازين صورتك',
-"دز انت وصورتك ",
-"اطلق صوره",
-"كيكك والله",
-"غير صورتك يالحبيب",
+'ملاك وناسيك بكروبنه😟',
+"حلغوم والله☹️ ",
+"اطلق صوره🐼❤️",
+"كيكك والله🥺",
+"لازك بيها غيرها عاد",
 }
 local Description = Texting[math.random(#Texting)]
 local Get_Is_Id = redis:get(bot_id.."KLISH:ID:bot") or redis:get(bot_id.."NightRang:Set:Id:Group"..msg.chat_id_)

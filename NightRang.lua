@@ -5574,7 +5574,7 @@ send(msg.chat_id_, msg.id_,' امر صيح تم تعطيله من قبل الم�
 end
 return false
 end
-if text and text:match("(.*)(ضافني)(.*)") then
+if text and text:match("منو ضافني") then
 if redis:get(bot_id..'Added:Me'..msg.chat_id_) then
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da and da.status_.ID == "ChatMemberStatusCreator" then
@@ -10541,7 +10541,6 @@ end,nil)
 end
 end
 end
-
 
 
 

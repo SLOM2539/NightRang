@@ -1,6 +1,6 @@
-# <p align="center" style="color:#cb3349" > [3rb](https://telegram.me/Snko_1) 
+# <p align="center" style="color:#cb3349" > [snko](https://telegram.me/Snko_1) 
 
-<p align="center" style="color: #000040;" > سورس عرب لتنصيب تابع اوامر تنصيب السورس
+<p align="center" style="color: #000040;" > سورس سنكو لتنصيب تابع اوامر تنصيب السورس
 
 *** 
 

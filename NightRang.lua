@@ -2384,14 +2384,14 @@ else
 if not redis:get(bot_id..'NightRang:Ban:Cmd:Start'..msg.sender_user_id_) then
 local GetCmdStart = redis:get(bot_id.."NightRang:Set:Cmd:Start:Bot")  
 if not GetCmdStart then 
-CmdStart = '\n• اهلا بك عزيزي \n انا بوت اسمي '..(redis:get(bot_id.."NightRang:Redis:Name:Bot") or "بروذر")..''..
+CmdStart = '\n• اهلا بك عزيزي \n انا بوت اسمي '..(redis:get(bot_id.."NightRang:Redis:Name:Bot") or "سنو")..''..
 '\n• اختصاص البوت حماية المجموعات'..
 '\n• لتفعيل البوت عليك اتباع مايلي ...'..
 '\n• اضف البوت الى مجموعتك'..
 '\n• ارفعه مشرف'..
 '\n• ارسل كلمة  تفعيل  ليتم تفعيل المجموعه'..
 '\n• سيتم ترقيتك منشئ اساسي في البوت'..
-'\n• معرف Carbon ← [@'..UserName_Dev..']'
+'\n• معرف Carbon ← ['..UserName_Dev..']'
 send(msg.chat_id_, msg.id_,CmdStart) 
 else
 send(msg.chat_id_, msg.id_,GetCmdStart) 
